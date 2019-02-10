@@ -1,7 +1,120 @@
 # W tym pliku napisz odpowiedzi na pytania opisowe.
 
 Zadanie 1.
+Jakie są podstawowe istotne różnice między Pythonem 2 oraz Pythonem 3?
+
+1.1. Operator dzielenia 
+    Python2 stosuje dzielenie całkowite w przypadku gdy dzielnik, dzielna są liczbami całkowitymi
+    Python3 dzieli liczby całkowite tak jak by były liczbami zmienno przecinkowymi
+
+    i.e 
+    Python2
+    7 / 5 = 1
+    Python3
+    7 / 5 = 1.4
+
+1.2 Funckja print
+    Funckcje print zastąpiono print() - dodatkowa para nawiasów jest wymagana
+
+    i.e 
+    Python2
+    print "Egzamin:)"
+    Python3
+    print("Egazamin:):)")
+
+1.3 UNICODE
+    python2.x obsługuje Unicode ale domyślnie koduje typ string za pomocą kody ASCII
+    python3.x domyślnie obsługuje typ Unicode co w łatwy sposób pozwala stosować znaki
+    które nie występują w tabeli ASCII.
+
+
+1.4 xrange()
+    Python2 - wspiera funckcję range() oraz xrange()
+    Python3 - Funkcja range() implementuje działanie funkcji xrange(). xrange() nie występuje
+
+1.5 szybkość
+    Python2 jest odrobinę szybszy niż Python3
+
+1.6 Obsługa wyjątków
+    Zgłaszanie:
+
+    Python2 wspiera "starą" i "nową" składnie obsługi wyjątków.
+    Python3 wspiera wyłącznie "nową" składnie:
+    
+    Python2
+        raise IOError, "file error"
+        raise IOError("file error")
+
+    Python3
+        raise IOError("file error")
+    
+    Przechwytywanie:
+    Python3 nowa sładnia (słówko kluczowe "as")
+    
+    Python2
+        try:
+            let_us_cause_a_NameError
+        except NameError, err:
+            print err, '--> our error message'
+    
+    Python3
+        try:
+            let_us_cause_a_NameError
+        except NameError as err:
+            print(err, '--> our error message')
+
+1.7 input()
+    Funkcja input() w Python3 zawsze zapisuje pobrane dane jako obiekt string.
+    W Python2 funkcja input() starała sie rozpoznać typ wprowadzanych danych.
+    Powszechnie stosowano raw_input() która zwracała typ string.
+    
+1.8 iterable objects zamiast list
+    Niektóre z funkcji w Python3 zwracją iterable object zamiast listy w Python2.
+    Pozwala to zaoszczędzić pamięć a gdy użycie listy jest niezbędne można konwertować
+    obiekt do listy za pomocą funkcji list().
+    
+    Przykład metody która zwracja iterable object zamiast listy
+    dictionary.keys()
+    dictionary.values()
+
 
 Zadanie 2.
+Czym jest moduł, jak go utworzyć? Czym jest pakiet, jak go utworzyć, z czego się składa?
+
+Moduł:
+    Plik z rozszerzeniem .py (i.e. my_module.py) który zawiera zestaw funkcji.
+    Tworzymy go tak jak każdy inny plik pythona, wykorzystujemy w programie za pomocą komendy import
+    
+    import my_module 
+
+Pakiet:
+    Przestrzeń nazw która zawiera wiele modułów (lub nawet innych pakietów).
+    Pakiet w Pythonie jest folderem, zawiera plik __init__.py. Plik informuje że folder zawiera moduł.
+    
+    Jezeli mamy pakiet foo i chcemy zaimportować moduł bar:
+    
+    foo:
+        |-__init__.py
+        |-bar
+        |-etc...
+    
+    stosujemy komendy:
+        import foo.bar
+        from foo import bar
+
 
 Zadanie 3.
+Jakie są podstawowe typy zmiennych przechowujące wartości numeryczne w Pythonie, czym się różnią?
+
+int:
+    Obsługuje dodatnie/ujemne liczby całkowite. Typ int ma nielimitowaną precyzję. 
+    Typ Boolean jest podtypem typy int.
+
+float:
+    Typ zmiennoprzecinkowy. Reprezentacja i precyzja zależą od maszyny na której uruchomiony jest interpreter.
+    Wspiera notację z standardową z kropką dziesientną oraz naukową ze znakiem wykładnika.
+    
+complex:
+    Typ obsługujący liczby urojone (składające się z części rzeczywistej i urojonej).
+    Dodanie "j" lub "J" do literału numerycznego daje liczbę urojoną.
+
