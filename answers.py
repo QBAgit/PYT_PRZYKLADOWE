@@ -156,5 +156,11 @@ def get_random_elements(data,n=1):
                 
         return out
 
+"""
 
+#### Zadanie 8. (5pkt)
+
+see Zad_8.py
+
+"""
 
