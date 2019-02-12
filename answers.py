@@ -116,5 +116,45 @@ def list_filter(int_values, *args):
 
     return out
 
+"""
+#### Zadanie 7. (4pkt)
+
+Napisz funkcję `get_random_elements`, która przyjmie 2 parametry: 
+
+* listę, 
+* opcjonalnie: ilość zwracanych elementów, domyślne **1** ,
+
+Następnie funkcja ma zwrócić odpowiednią ilość losowych elementów z pierwotnej listy.
+
+Jeśli użytkownik poda jako ilość, wartość która nie jest całkowita i większą od 
+**0** lub jest większa niż ilość elementów, funkcja ma wyrzucić wyjątek `Exception` 
+z komunikatem "No way to do this!" 
+
+##### Podpowiedź
+```python
+get_random_elements([1,2,6,3,7]) # [2]
+get_random_elements([1,2,6,3,7],3) # [6,2,7]
+get_random_elements([1,2,6,3,7],16) # Wyjątek!
+```
+"""
+
+def get_random_elements(data,n=1):
+    #print("Debug: data={}".format(data))
+    #print("Debug: n={}".format(n))
+    out = []
+
+    if type(n)!=int or n>len(data) or n<=0:
+        raise Exception("No way to do this!")
+    else:
+            
+        from random import randint
+
+        for i in range(0,n):
+            idx = randint(0,len(data)-1)
+            out.append(data[idx])
+            data.pop(idx)
+                
+        return out
+
 
 
