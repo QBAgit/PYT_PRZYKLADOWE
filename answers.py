@@ -78,3 +78,43 @@ def count_char(text,x):
             ctr+=1
 
     return ctr
+
+
+"""
+#### Zadanie 6. (3pkt)
+
+Napisz funkcje `list_filter`, która przyjmie jako pierwszy argument listę `int_values` 
+zawierającą wartości typu `int` oraz dowolną ( większą od zera ) 
+ilość dodatkowych argumentów - dzielników typu `int` większych od `1`. 
+Funkcja ma zwrócić nową listę z elementami z listy `int_values`, 
+które nie dzielą się przez żaden z podanych dzielników.
+
+##### Przykład:
+```python
+result = list_filter([1,8,15,20,11], 20)
+print(result) # [1,8,15,11]
+result = list_filter([1,8,15,20,11], 20,4)
+print(result) # [1,15,11]
+result = list_filter([1,8,15,20,11], 2, 5, 31)
+print(result) # [1,11]
+```
+"""
+
+def list_filter(int_values, *args):
+    out = []
+
+    for value in int_values:
+        ctr=0
+        for arg in args:
+            #check if value is divisible by argument
+            if value % arg == 0:
+                ctr+=1
+        
+        #append to out[] when the value is not divisible by any argument
+        if ctr == 0:
+            out.append(value)
+
+    return out
+
+
+
